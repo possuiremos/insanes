@@ -1,0 +1,217 @@
+/* Reset básico */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Impede rolagem */
+}
+
+/* Vídeo de fundo */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Garante que o vídeo fique no fundo */
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo cobrir toda a tela */
+}
+
+/* Overlay (conteúdo) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para o conteúdo */
+    z-index: 1; /* Garante que o conteúdo fique sobre o vídeo */
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 5rem;
+    color: #ff4c4c;
+    text-shadow: 0 0 20px red, 0 0 40px red;
+}
+
+/* Container de Usuários */
+.user-box-container {
+    display: flex;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os elementos */
+    flex-wrap: nowrap; /* Impede que os itens se movam para a linha de baixo */
+    overflow-x: auto; /* Habilita a rolagem horizontal */
+    padding: 20px;
+    width: 100%; /* Garante que o container ocupe toda a largura disponível */
+    scroll-snap-type: x mandatory; /* Força o deslizamento suave dos itens */
+}
+
+.user-box-container::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem */
+}
+
+/* Caixa do Usuário */
+.user-box {
+    background: rgba(0, 0, 0, 0.7); /* Fundo escuro transparente */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    width: 250px;
+    text-align: center;
+    scroll-snap-align: start; /* Faz com que cada box pare na tela */
+}
+
+.user-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #ccc;
+}
+
+.nickname {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.effect-message {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 15px 0;
+    color: #ccc;
+}
+
+.socials a {
+    display: inline-block;
+    margin: 5px 15px;
+    text-decoration: none;
+    color: #ff4c4c;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.socials a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Símbolo de Nitro */
+.nitro-symbol {
+    margin-top: 10px; /* Distância entre o nickname e o ícone */
+    display: flex;
+    justify-content: center;
+}
+
+.nitro-icon {
+    width: 30px; /* Tamanho do ícone */
+    height: auto;
+}
+
+/* Cargo */
+.role {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    font-weight: bold;
+    color: #ccc; /* Cor padrão */
+}
+
+
+/* Símbolos de Nitro e Boost */
+.nitro-boost-symbols {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Distância entre os ícones */
+    margin-top: 10px; /* Distância entre o nickname e os ícones */
+}
+
+.nitro-icon, .boost-icon {
+    width: 30px; /* Tamanho dos ícones */
+    height: auto;
+}
+
+/* Link do Discord na parte inferior */
+.discord-link {
+    position: absolute;
+    bottom: 60px; /* Ajusta a distância da parte inferior (mais para cima) */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta o alinhamento para garantir a centralização */
+    text-align: center;
+}
+
+.discord-link a {
+    font-size: 1.5rem;
+    color: #ff4c4c;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, transform 0.3s;
+    animation: glow 1.5s infinite alternate; /* Animação para o brilho */
+    text-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 30px rgb(0, 255, 0), 0 0 40px rgb(0, 0, 255); /* Efeito de brilho RGB */
+}
+
+/* Link do Discord na parte superior */
+.discord-link {
+    position: absolute;
+    top: 100px; /* Ajusta a distância da parte superior (mais para cima) */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta o alinhamento para garantir a centralização */
+    text-align: center;
+}
+
+/* Animação para o efeito de brilho */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgb(255, 0, 0), 0 0 20px rgb(255, 0, 0), 0 0 30px rgb(0, 255, 0), 0 0 40px rgb(0, 0, 255);
+    }
+    100% {
+        text-shadow: 0 0 20px rgb(255, 0, 0), 0 0 30px rgb(255, 0, 0), 0 0 40px rgb(0, 255, 0), 0 0 50px rgb(0, 0, 255);
+    }
+}
+
+/* Flocos de Neve */
+#snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2; /* Garante que os flocos de neve fiquem acima do conteúdo */
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1rem;
+    animation: fall linear infinite;
+    opacity: 0.8; /* Flocos com opacidade mais leve */
+    animation-duration: 10s; /* A animação dos flocos é mais suave */
+}
+
+/* Efeito de queda para os flocos */
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0.2;
+    }
+}
